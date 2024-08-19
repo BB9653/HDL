@@ -1,0 +1,126 @@
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+--A1L2 is _~1
+A1L2_adder_eqn = ( !cin $ (!b[0] $ (a[0])) ) + ( !VCC ) + ( !VCC );
+A1L2 = SUM(A1L2_adder_eqn);
+
+--A1L3 is _~2
+A1L3_adder_eqn = ( !cin $ (!b[0] $ (a[0])) ) + ( !VCC ) + ( !VCC );
+A1L3 = CARRY(A1L3_adder_eqn);
+
+--A1L4 is _~3
+A1L4_share_eqn = (!cin & (b[0] & a[0])) # (cin & ((a[0]) # (b[0])));
+A1L4 = SHARE(A1L4_share_eqn);
+
+
+--A1L6 is _~5
+A1L6_adder_eqn = ( !b[1] $ (!a[1]) ) + ( A1L4 ) + ( A1L3 );
+A1L6 = SUM(A1L6_adder_eqn);
+
+--A1L7 is _~6
+A1L7_adder_eqn = ( !b[1] $ (!a[1]) ) + ( A1L4 ) + ( A1L3 );
+A1L7 = CARRY(A1L7_adder_eqn);
+
+--A1L8 is _~7
+A1L8_share_eqn = (b[1] & a[1]);
+A1L8 = SHARE(A1L8_share_eqn);
+
+
+--A1L10 is _~9
+A1L10_adder_eqn = ( !b[2] $ (!a[2]) ) + ( A1L8 ) + ( A1L7 );
+A1L10 = SUM(A1L10_adder_eqn);
+
+--A1L11 is _~10
+A1L11_adder_eqn = ( !b[2] $ (!a[2]) ) + ( A1L8 ) + ( A1L7 );
+A1L11 = CARRY(A1L11_adder_eqn);
+
+--A1L12 is _~11
+A1L12_share_eqn = (b[2] & a[2]);
+A1L12 = SHARE(A1L12_share_eqn);
+
+
+--A1L14 is _~13
+A1L14_adder_eqn = ( !b[3] $ (!a[3]) ) + ( A1L12 ) + ( A1L11 );
+A1L14 = SUM(A1L14_adder_eqn);
+
+--A1L15 is _~14
+A1L15_adder_eqn = ( !b[3] $ (!a[3]) ) + ( A1L12 ) + ( A1L11 );
+A1L15 = CARRY(A1L15_adder_eqn);
+
+--A1L16 is _~15
+A1L16_share_eqn = (b[3] & a[3]);
+A1L16 = SHARE(A1L16_share_eqn);
+
+
+--A1L18 is _~17
+A1L18_adder_eqn = ( GND ) + ( A1L16 ) + ( A1L15 );
+A1L18 = SUM(A1L18_adder_eqn);
+
+
+--sum[0] is sum[0]
+sum[0] = OUTPUT(A1L2);
+
+
+--sum[1] is sum[1]
+sum[1] = OUTPUT(A1L6);
+
+
+--sum[2] is sum[2]
+sum[2] = OUTPUT(A1L10);
+
+
+--sum[3] is sum[3]
+sum[3] = OUTPUT(A1L14);
+
+
+--cout is cout
+cout = OUTPUT(A1L18);
+
+
+--cin is cin
+cin = INPUT();
+
+
+--b[0] is b[0]
+b[0] = INPUT();
+
+
+--a[0] is a[0]
+a[0] = INPUT();
+
+
+--b[1] is b[1]
+b[1] = INPUT();
+
+
+--a[1] is a[1]
+a[1] = INPUT();
+
+
+--b[2] is b[2]
+b[2] = INPUT();
+
+
+--a[2] is a[2]
+a[2] = INPUT();
+
+
+--b[3] is b[3]
+b[3] = INPUT();
+
+
+--a[3] is a[3]
+a[3] = INPUT();
+
+

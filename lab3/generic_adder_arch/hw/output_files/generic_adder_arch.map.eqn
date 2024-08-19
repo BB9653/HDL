@@ -1,0 +1,93 @@
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+--sum[0] is sum[0]
+sum[0] = OUTPUT(E2_c);
+
+
+--sum[1] is sum[1]
+sum[1] = OUTPUT(E4_c);
+
+
+--sum[2] is sum[2]
+sum[2] = OUTPUT(E6_c);
+
+
+--sum[3] is sum[3]
+sum[3] = OUTPUT(E8_c);
+
+
+--cout is cout
+cout = OUTPUT(D8L1);
+
+
+--a[0] is a[0]
+a[0] = INPUT();
+
+
+--b[0] is b[0]
+b[0] = INPUT();
+
+
+--cin is cin
+cin = INPUT();
+
+
+--E2_c is full_adder_single_bit_arch:\adders:0:full_adder|alu_xor:xor2_inst|c
+E2_c = !a[0] $ (!b[0] $ (cin));
+
+
+--a[1] is a[1]
+a[1] = INPUT();
+
+
+--b[1] is b[1]
+b[1] = INPUT();
+
+
+--E4_c is full_adder_single_bit_arch:\adders:1:full_adder|alu_xor:xor2_inst|c
+E4_c = ( b[1] & ( !a[1] $ (((!a[0] & (b[0] & cin)) # (a[0] & ((cin) # (b[0]))))) ) ) # ( !b[1] & ( !a[1] $ (((!a[0] & ((!b[0]) # (!cin))) # (a[0] & (!b[0] & !cin)))) ) );
+
+
+--a[2] is a[2]
+a[2] = INPUT();
+
+
+--b[2] is b[2]
+b[2] = INPUT();
+
+
+--D4L1 is full_adder_single_bit_arch:\adders:1:full_adder|alu_or:or2_inst|c~0
+D4L1 = ( b[1] & ( ((!a[0] & (b[0] & cin)) # (a[0] & ((cin) # (b[0])))) # (a[1]) ) ) # ( !b[1] & ( (a[1] & ((!a[0] & (b[0] & cin)) # (a[0] & ((cin) # (b[0]))))) ) );
+
+
+--E6_c is full_adder_single_bit_arch:\adders:2:full_adder|alu_xor:xor2_inst|c
+E6_c = !a[2] $ (!b[2] $ (D4L1));
+
+
+--a[3] is a[3]
+a[3] = INPUT();
+
+
+--b[3] is b[3]
+b[3] = INPUT();
+
+
+--E8_c is full_adder_single_bit_arch:\adders:3:full_adder|alu_xor:xor2_inst|c
+E8_c = ( b[3] & ( !a[3] $ (((!a[2] & (b[2] & D4L1)) # (a[2] & ((D4L1) # (b[2]))))) ) ) # ( !b[3] & ( !a[3] $ (((!a[2] & ((!b[2]) # (!D4L1))) # (a[2] & (!b[2] & !D4L1)))) ) );
+
+
+--D8L1 is full_adder_single_bit_arch:\adders:3:full_adder|alu_or:or2_inst|c~0
+D8L1 = ( b[3] & ( ((!a[2] & (b[2] & D4L1)) # (a[2] & ((D4L1) # (b[2])))) # (a[3]) ) ) # ( !b[3] & ( (a[3] & ((!a[2] & (b[2] & D4L1)) # (a[2] & ((D4L1) # (b[2]))))) ) );
+
+

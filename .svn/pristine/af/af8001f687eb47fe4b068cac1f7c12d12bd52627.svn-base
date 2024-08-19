@@ -1,0 +1,41 @@
+# do sim.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:54:24 on Jun 13,2024
+# vcom -reportprogress 300 -93 -work work ../../src/seven_seg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity seven_seg
+# -- Compiling architecture behav of seven_seg
+# End time: 18:54:24 on Jun 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 18:54:24 on Jun 13,2024
+# vcom -reportprogress 300 -93 -work work ../src/seven_seg_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity seven_seg_tb
+# -- Compiling architecture arch of seven_seg_tb
+# End time: 18:54:24 on Jun 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" seven_seg_tb 
+# Start time: 18:54:24 on Jun 13,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.seven_seg_tb(arch)
+# Loading work.seven_seg(behav)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: 15855  Hostname: BMO  ProcessID: 3236
+#           Attempting to use alternate WLF file "./wlftdiq9hc".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftdiq9hc
+# ** Note: ****************** sequential testbench start ****************
+#    Time: 0 ps  Iteration: 0  Instance: /seven_seg_tb
+# ** Note: ****************** sequential testbench stop ****************
+#    Time: 720 ns  Iteration: 0  Instance: /seven_seg_tb

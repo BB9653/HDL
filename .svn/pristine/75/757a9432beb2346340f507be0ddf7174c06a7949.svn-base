@@ -1,0 +1,150 @@
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+--F2_c is full_adder_single_bit_arch:\adders:0:full_adder|alu_xor:xor2_inst|c at LABCELL_X88_Y21_N0
+F2_c = ( A1L17 & ( !A1L25 $ (A1L7) ) ) # ( !A1L17 & ( !A1L25 $ (!A1L7) ) );
+
+
+--F4_c is full_adder_single_bit_arch:\adders:1:full_adder|alu_xor:xor2_inst|c at LABCELL_X88_Y21_N39
+F4_c = ( A1L25 & ( !A1L9 $ (!A1L19 $ (((A1L7) # (A1L17)))) ) ) # ( !A1L25 & ( !A1L9 $ (!A1L19 $ (((A1L17 & A1L7)))) ) );
+
+
+--E4L1 is full_adder_single_bit_arch:\adders:1:full_adder|alu_or:or2_inst|c~0 at LABCELL_X88_Y21_N42
+E4L1 = ( A1L25 & ( (!A1L19 & (A1L9 & ((A1L17) # (A1L7)))) # (A1L19 & (((A1L17) # (A1L9)) # (A1L7))) ) ) # ( !A1L25 & ( (!A1L19 & (A1L7 & (A1L9 & A1L17))) # (A1L19 & (((A1L7 & A1L17)) # (A1L9))) ) );
+
+
+--F6_c is full_adder_single_bit_arch:\adders:2:full_adder|alu_xor:xor2_inst|c at LABCELL_X88_Y21_N51
+F6_c = ( A1L11 & ( A1L21 & ( E4L1 ) ) ) # ( !A1L11 & ( A1L21 & ( !E4L1 ) ) ) # ( A1L11 & ( !A1L21 & ( !E4L1 ) ) ) # ( !A1L11 & ( !A1L21 & ( E4L1 ) ) );
+
+
+--F8_c is full_adder_single_bit_arch:\adders:3:full_adder|alu_xor:xor2_inst|c at LABCELL_X88_Y21_N54
+F8_c = ( A1L13 & ( A1L21 & ( !A1L23 $ (((A1L11) # (E4L1))) ) ) ) # ( !A1L13 & ( A1L21 & ( !A1L23 $ (((!E4L1 & !A1L11))) ) ) ) # ( A1L13 & ( !A1L21 & ( !A1L23 $ (((E4L1 & A1L11))) ) ) ) # ( !A1L13 & ( !A1L21 & ( !A1L23 $ (((!E4L1) # (!A1L11))) ) ) );
+
+
+--E8L1 is full_adder_single_bit_arch:\adders:3:full_adder|alu_or:or2_inst|c~0 at LABCELL_X88_Y21_N33
+E8L1 = ( A1L13 & ( A1L21 & ( ((E4L1) # (A1L11)) # (A1L23) ) ) ) # ( !A1L13 & ( A1L21 & ( (A1L23 & ((E4L1) # (A1L11))) ) ) ) # ( A1L13 & ( !A1L21 & ( ((A1L11 & E4L1)) # (A1L23) ) ) ) # ( !A1L13 & ( !A1L21 & ( (A1L23 & (A1L11 & E4L1)) ) ) );
+
+
+--A1L30 is sum[0]~output at IOOBUF_X89_Y20_N96
+A1L30 = OUTPUT_BUFFER.O(.I(F2_c), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--sum[0] is sum[0] at PIN_AC29
+sum[0] = OUTPUT();
+
+
+--A1L32 is sum[1]~output at IOOBUF_X89_Y25_N5
+A1L32 = OUTPUT_BUFFER.O(.I(F4_c), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--sum[1] is sum[1] at PIN_Y26
+sum[1] = OUTPUT();
+
+
+--A1L34 is sum[2]~output at IOOBUF_X89_Y20_N79
+A1L34 = OUTPUT_BUFFER.O(.I(F6_c), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--sum[2] is sum[2] at PIN_AC28
+sum[2] = OUTPUT();
+
+
+--A1L36 is sum[3]~output at IOOBUF_X89_Y23_N5
+A1L36 = OUTPUT_BUFFER.O(.I(F8_c), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--sum[3] is sum[3] at PIN_AA26
+sum[3] = OUTPUT();
+
+
+--A1L27 is cout~output at IOOBUF_X89_Y25_N39
+A1L27 = OUTPUT_BUFFER.O(.I(E8L1), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--cout is cout at PIN_AD30
+cout = OUTPUT();
+
+
+--A1L7 is a[0]~input at IOIBUF_X89_Y21_N55
+A1L7 = INPUT_BUFFER(.I(a[0]), );
+
+
+--a[0] is a[0] at PIN_AA28
+a[0] = INPUT();
+
+
+--A1L17 is b[0]~input at IOIBUF_X89_Y20_N44
+A1L17 = INPUT_BUFFER(.I(b[0]), );
+
+
+--b[0] is b[0] at PIN_W25
+b[0] = INPUT();
+
+
+--A1L25 is cin~input at IOIBUF_X89_Y23_N55
+A1L25 = INPUT_BUFFER(.I(cin), );
+
+
+--cin is cin at PIN_AD29
+cin = INPUT();
+
+
+--A1L9 is a[1]~input at IOIBUF_X89_Y21_N4
+A1L9 = INPUT_BUFFER(.I(a[1]), );
+
+
+--a[1] is a[1] at PIN_AB30
+a[1] = INPUT();
+
+
+--A1L19 is b[1]~input at IOIBUF_X89_Y23_N21
+A1L19 = INPUT_BUFFER(.I(b[1]), );
+
+
+--b[1] is b[1] at PIN_AB27
+b[1] = INPUT();
+
+
+--A1L11 is a[2]~input at IOIBUF_X89_Y21_N21
+A1L11 = INPUT_BUFFER(.I(a[2]), );
+
+
+--a[2] is a[2] at PIN_AA30
+a[2] = INPUT();
+
+
+--A1L21 is b[2]~input at IOIBUF_X89_Y21_N38
+A1L21 = INPUT_BUFFER(.I(b[2]), );
+
+
+--b[2] is b[2] at PIN_AB28
+b[2] = INPUT();
+
+
+--A1L13 is a[3]~input at IOIBUF_X89_Y23_N38
+A1L13 = INPUT_BUFFER(.I(a[3]), );
+
+
+--a[3] is a[3] at PIN_AE29
+a[3] = INPUT();
+
+
+--A1L23 is b[3]~input at IOIBUF_X89_Y20_N61
+A1L23 = INPUT_BUFFER(.I(b[3]), );
+
+
+--b[3] is b[3] at PIN_V25
+b[3] = INPUT();
+
+
+

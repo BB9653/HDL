@@ -1,0 +1,660 @@
+-- Copyright (C) 2018  Intel Corporation. All rights reserved.
+-- Your use of Intel Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Intel Program License 
+-- Subscription Agreement, the Intel Quartus Prime License Agreement,
+-- the Intel FPGA IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Intel and sold by Intel or its authorized distributors.  Please
+-- refer to the applicable agreement for further details.
+--C1_sum[0] is generic_adder_beh:uut_adder|sum[0] at LABCELL_X48_Y15_N0
+C1_sum[0]_adder_eqn = ( !A1L7 $ (!sum_sig_signal[0]) ) + ( !VCC ) + ( !VCC );
+C1_sum[0] = SUM(C1_sum[0]_adder_eqn);
+
+--C1L2 is generic_adder_beh:uut_adder|_~1 at LABCELL_X48_Y15_N0
+C1L2_adder_eqn = ( !A1L7 $ (!sum_sig_signal[0]) ) + ( !VCC ) + ( !VCC );
+C1L2 = CARRY(C1L2_adder_eqn);
+
+--C1L3 is generic_adder_beh:uut_adder|_~2 at LABCELL_X48_Y15_N0
+C1L3_share_eqn = (A1L7 & sum_sig_signal[0]);
+C1L3 = SHARE(C1L3_share_eqn);
+
+
+--C1_sum[1] is generic_adder_beh:uut_adder|sum[1] at LABCELL_X48_Y15_N3
+C1_sum[1]_adder_eqn = ( !A1L9 $ (!sum_sig_signal[1]) ) + ( C1L3 ) + ( C1L2 );
+C1_sum[1] = SUM(C1_sum[1]_adder_eqn);
+
+--C1L5 is generic_adder_beh:uut_adder|_~4 at LABCELL_X48_Y15_N3
+C1L5_adder_eqn = ( !A1L9 $ (!sum_sig_signal[1]) ) + ( C1L3 ) + ( C1L2 );
+C1L5 = CARRY(C1L5_adder_eqn);
+
+--C1L6 is generic_adder_beh:uut_adder|_~5 at LABCELL_X48_Y15_N3
+C1L6_share_eqn = (A1L9 & sum_sig_signal[1]);
+C1L6 = SHARE(C1L6_share_eqn);
+
+
+--C1_sum[2] is generic_adder_beh:uut_adder|sum[2] at LABCELL_X48_Y15_N6
+C1_sum[2]_adder_eqn = ( !A1L11 $ (!sum_sig_signal[2]) ) + ( C1L6 ) + ( C1L5 );
+C1_sum[2] = SUM(C1_sum[2]_adder_eqn);
+
+--C1L8 is generic_adder_beh:uut_adder|_~7 at LABCELL_X48_Y15_N6
+C1L8_adder_eqn = ( !A1L11 $ (!sum_sig_signal[2]) ) + ( C1L6 ) + ( C1L5 );
+C1L8 = CARRY(C1L8_adder_eqn);
+
+--C1L9 is generic_adder_beh:uut_adder|_~8 at LABCELL_X48_Y15_N6
+C1L9_share_eqn = (A1L11 & sum_sig_signal[2]);
+C1L9 = SHARE(C1L9_share_eqn);
+
+
+--C1_sum[3] is generic_adder_beh:uut_adder|sum[3] at LABCELL_X48_Y15_N9
+C1_sum[3]_adder_eqn = ( !A1L13 $ (!sum_sig_signal[3]) ) + ( C1L9 ) + ( C1L8 );
+C1_sum[3] = SUM(C1_sum[3]_adder_eqn);
+
+
+--D1_count_sig[1] is generic_counter:uut_counter|count_sig[1] at FF_X48_Y15_N35
+--register power-up is low
+
+D1_count_sig[1] = DFFEAS(D1L2, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[0] is generic_counter:uut_counter|count_sig[0] at FF_X48_Y15_N32
+--register power-up is low
+
+D1_count_sig[0] = DFFEAS(D1L6, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[25] is generic_counter:uut_counter|count_sig[25] at FF_X48_Y14_N47
+--register power-up is low
+
+D1_count_sig[25] = DFFEAS(D1L10, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[24] is generic_counter:uut_counter|count_sig[24] at FF_X48_Y14_N44
+--register power-up is low
+
+D1_count_sig[24] = DFFEAS(D1L14, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[23] is generic_counter:uut_counter|count_sig[23] at FF_X48_Y14_N41
+--register power-up is low
+
+D1_count_sig[23] = DFFEAS(D1L18, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[22] is generic_counter:uut_counter|count_sig[22] at FF_X48_Y14_N38
+--register power-up is low
+
+D1_count_sig[22] = DFFEAS(D1L22, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[21] is generic_counter:uut_counter|count_sig[21] at FF_X48_Y14_N35
+--register power-up is low
+
+D1_count_sig[21] = DFFEAS(D1L26, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[20] is generic_counter:uut_counter|count_sig[20] at FF_X48_Y14_N32
+--register power-up is low
+
+D1_count_sig[20] = DFFEAS(D1L30, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[19] is generic_counter:uut_counter|count_sig[19] at FF_X48_Y14_N29
+--register power-up is low
+
+D1_count_sig[19] = DFFEAS(D1L34, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[18] is generic_counter:uut_counter|count_sig[18] at FF_X48_Y14_N26
+--register power-up is low
+
+D1_count_sig[18] = DFFEAS(D1L38, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[17] is generic_counter:uut_counter|count_sig[17] at FF_X48_Y14_N23
+--register power-up is low
+
+D1_count_sig[17] = DFFEAS(D1L42, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[16] is generic_counter:uut_counter|count_sig[16] at FF_X48_Y14_N20
+--register power-up is low
+
+D1_count_sig[16] = DFFEAS(D1L46, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[15] is generic_counter:uut_counter|count_sig[15] at FF_X48_Y14_N17
+--register power-up is low
+
+D1_count_sig[15] = DFFEAS(D1L50, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[14] is generic_counter:uut_counter|count_sig[14] at FF_X48_Y14_N14
+--register power-up is low
+
+D1_count_sig[14] = DFFEAS(D1L54, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[13] is generic_counter:uut_counter|count_sig[13] at FF_X48_Y14_N11
+--register power-up is low
+
+D1_count_sig[13] = DFFEAS(D1L58, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[12] is generic_counter:uut_counter|count_sig[12] at FF_X48_Y14_N8
+--register power-up is low
+
+D1_count_sig[12] = DFFEAS(D1L62, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[11] is generic_counter:uut_counter|count_sig[11] at FF_X48_Y14_N5
+--register power-up is low
+
+D1_count_sig[11] = DFFEAS(D1L66, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[10] is generic_counter:uut_counter|count_sig[10] at FF_X48_Y14_N2
+--register power-up is low
+
+D1_count_sig[10] = DFFEAS(D1L70, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[9] is generic_counter:uut_counter|count_sig[9] at FF_X48_Y15_N59
+--register power-up is low
+
+D1_count_sig[9] = DFFEAS(D1L74, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[8] is generic_counter:uut_counter|count_sig[8] at FF_X48_Y15_N56
+--register power-up is low
+
+D1_count_sig[8] = DFFEAS(D1L78, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[7] is generic_counter:uut_counter|count_sig[7] at FF_X48_Y15_N52
+--register power-up is low
+
+D1_count_sig[7] = DFFEAS(D1L82, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[6] is generic_counter:uut_counter|count_sig[6] at FF_X48_Y15_N50
+--register power-up is low
+
+D1_count_sig[6] = DFFEAS(D1L86, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[5] is generic_counter:uut_counter|count_sig[5] at FF_X48_Y15_N47
+--register power-up is low
+
+D1_count_sig[5] = DFFEAS(D1L90, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[4] is generic_counter:uut_counter|count_sig[4] at FF_X48_Y15_N43
+--register power-up is low
+
+D1_count_sig[4] = DFFEAS(D1L94, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[3] is generic_counter:uut_counter|count_sig[3] at FF_X48_Y15_N41
+--register power-up is low
+
+D1_count_sig[3] = DFFEAS(D1L98, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1_count_sig[2] is generic_counter:uut_counter|count_sig[2] at FF_X48_Y15_N38
+--register power-up is low
+
+D1_count_sig[2] = DFFEAS(D1L102, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1L2 is generic_counter:uut_counter|Add0~1 at LABCELL_X48_Y15_N33
+D1L2_adder_eqn = ( D1_count_sig[1] ) + ( GND ) + ( D1L7 );
+D1L2 = SUM(D1L2_adder_eqn);
+
+--D1L3 is generic_counter:uut_counter|Add0~2 at LABCELL_X48_Y15_N33
+D1L3_adder_eqn = ( D1_count_sig[1] ) + ( GND ) + ( D1L7 );
+D1L3 = CARRY(D1L3_adder_eqn);
+
+
+--D1L6 is generic_counter:uut_counter|Add0~5 at LABCELL_X48_Y15_N30
+D1L6_adder_eqn = ( D1L107Q ) + ( VCC ) + ( !VCC );
+D1L6 = SUM(D1L6_adder_eqn);
+
+--D1L7 is generic_counter:uut_counter|Add0~6 at LABCELL_X48_Y15_N30
+D1L7_adder_eqn = ( D1L107Q ) + ( VCC ) + ( !VCC );
+D1L7 = CARRY(D1L7_adder_eqn);
+
+
+--D1L10 is generic_counter:uut_counter|Add0~9 at LABCELL_X48_Y14_N45
+D1L10_adder_eqn = ( D1_count_sig[25] ) + ( GND ) + ( D1L15 );
+D1L10 = SUM(D1L10_adder_eqn);
+
+
+--D1L14 is generic_counter:uut_counter|Add0~13 at LABCELL_X48_Y14_N42
+D1L14_adder_eqn = ( D1_count_sig[24] ) + ( GND ) + ( D1L19 );
+D1L14 = SUM(D1L14_adder_eqn);
+
+--D1L15 is generic_counter:uut_counter|Add0~14 at LABCELL_X48_Y14_N42
+D1L15_adder_eqn = ( D1_count_sig[24] ) + ( GND ) + ( D1L19 );
+D1L15 = CARRY(D1L15_adder_eqn);
+
+
+--D1L18 is generic_counter:uut_counter|Add0~17 at LABCELL_X48_Y14_N39
+D1L18_adder_eqn = ( D1_count_sig[23] ) + ( GND ) + ( D1L23 );
+D1L18 = SUM(D1L18_adder_eqn);
+
+--D1L19 is generic_counter:uut_counter|Add0~18 at LABCELL_X48_Y14_N39
+D1L19_adder_eqn = ( D1_count_sig[23] ) + ( GND ) + ( D1L23 );
+D1L19 = CARRY(D1L19_adder_eqn);
+
+
+--D1L22 is generic_counter:uut_counter|Add0~21 at LABCELL_X48_Y14_N36
+D1L22_adder_eqn = ( D1_count_sig[22] ) + ( GND ) + ( D1L27 );
+D1L22 = SUM(D1L22_adder_eqn);
+
+--D1L23 is generic_counter:uut_counter|Add0~22 at LABCELL_X48_Y14_N36
+D1L23_adder_eqn = ( D1_count_sig[22] ) + ( GND ) + ( D1L27 );
+D1L23 = CARRY(D1L23_adder_eqn);
+
+
+--D1L26 is generic_counter:uut_counter|Add0~25 at LABCELL_X48_Y14_N33
+D1L26_adder_eqn = ( D1_count_sig[21] ) + ( GND ) + ( D1L31 );
+D1L26 = SUM(D1L26_adder_eqn);
+
+--D1L27 is generic_counter:uut_counter|Add0~26 at LABCELL_X48_Y14_N33
+D1L27_adder_eqn = ( D1_count_sig[21] ) + ( GND ) + ( D1L31 );
+D1L27 = CARRY(D1L27_adder_eqn);
+
+
+--D1L30 is generic_counter:uut_counter|Add0~29 at LABCELL_X48_Y14_N30
+D1L30_adder_eqn = ( D1_count_sig[20] ) + ( GND ) + ( D1L35 );
+D1L30 = SUM(D1L30_adder_eqn);
+
+--D1L31 is generic_counter:uut_counter|Add0~30 at LABCELL_X48_Y14_N30
+D1L31_adder_eqn = ( D1_count_sig[20] ) + ( GND ) + ( D1L35 );
+D1L31 = CARRY(D1L31_adder_eqn);
+
+
+--D1L34 is generic_counter:uut_counter|Add0~33 at LABCELL_X48_Y14_N27
+D1L34_adder_eqn = ( D1_count_sig[19] ) + ( GND ) + ( D1L39 );
+D1L34 = SUM(D1L34_adder_eqn);
+
+--D1L35 is generic_counter:uut_counter|Add0~34 at LABCELL_X48_Y14_N27
+D1L35_adder_eqn = ( D1_count_sig[19] ) + ( GND ) + ( D1L39 );
+D1L35 = CARRY(D1L35_adder_eqn);
+
+
+--D1L38 is generic_counter:uut_counter|Add0~37 at LABCELL_X48_Y14_N24
+D1L38_adder_eqn = ( D1_count_sig[18] ) + ( GND ) + ( D1L43 );
+D1L38 = SUM(D1L38_adder_eqn);
+
+--D1L39 is generic_counter:uut_counter|Add0~38 at LABCELL_X48_Y14_N24
+D1L39_adder_eqn = ( D1_count_sig[18] ) + ( GND ) + ( D1L43 );
+D1L39 = CARRY(D1L39_adder_eqn);
+
+
+--D1L42 is generic_counter:uut_counter|Add0~41 at LABCELL_X48_Y14_N21
+D1L42_adder_eqn = ( D1_count_sig[17] ) + ( GND ) + ( D1L47 );
+D1L42 = SUM(D1L42_adder_eqn);
+
+--D1L43 is generic_counter:uut_counter|Add0~42 at LABCELL_X48_Y14_N21
+D1L43_adder_eqn = ( D1_count_sig[17] ) + ( GND ) + ( D1L47 );
+D1L43 = CARRY(D1L43_adder_eqn);
+
+
+--D1L46 is generic_counter:uut_counter|Add0~45 at LABCELL_X48_Y14_N18
+D1L46_adder_eqn = ( D1_count_sig[16] ) + ( GND ) + ( D1L51 );
+D1L46 = SUM(D1L46_adder_eqn);
+
+--D1L47 is generic_counter:uut_counter|Add0~46 at LABCELL_X48_Y14_N18
+D1L47_adder_eqn = ( D1_count_sig[16] ) + ( GND ) + ( D1L51 );
+D1L47 = CARRY(D1L47_adder_eqn);
+
+
+--D1L50 is generic_counter:uut_counter|Add0~49 at LABCELL_X48_Y14_N15
+D1L50_adder_eqn = ( D1L126Q ) + ( GND ) + ( D1L55 );
+D1L50 = SUM(D1L50_adder_eqn);
+
+--D1L51 is generic_counter:uut_counter|Add0~50 at LABCELL_X48_Y14_N15
+D1L51_adder_eqn = ( D1L126Q ) + ( GND ) + ( D1L55 );
+D1L51 = CARRY(D1L51_adder_eqn);
+
+
+--D1L54 is generic_counter:uut_counter|Add0~53 at LABCELL_X48_Y14_N12
+D1L54_adder_eqn = ( D1_count_sig[14] ) + ( GND ) + ( D1L59 );
+D1L54 = SUM(D1L54_adder_eqn);
+
+--D1L55 is generic_counter:uut_counter|Add0~54 at LABCELL_X48_Y14_N12
+D1L55_adder_eqn = ( D1_count_sig[14] ) + ( GND ) + ( D1L59 );
+D1L55 = CARRY(D1L55_adder_eqn);
+
+
+--D1L58 is generic_counter:uut_counter|Add0~57 at LABCELL_X48_Y14_N9
+D1L58_adder_eqn = ( D1_count_sig[13] ) + ( GND ) + ( D1L63 );
+D1L58 = SUM(D1L58_adder_eqn);
+
+--D1L59 is generic_counter:uut_counter|Add0~58 at LABCELL_X48_Y14_N9
+D1L59_adder_eqn = ( D1_count_sig[13] ) + ( GND ) + ( D1L63 );
+D1L59 = CARRY(D1L59_adder_eqn);
+
+
+--D1L62 is generic_counter:uut_counter|Add0~61 at LABCELL_X48_Y14_N6
+D1L62_adder_eqn = ( D1L122Q ) + ( GND ) + ( D1L67 );
+D1L62 = SUM(D1L62_adder_eqn);
+
+--D1L63 is generic_counter:uut_counter|Add0~62 at LABCELL_X48_Y14_N6
+D1L63_adder_eqn = ( D1L122Q ) + ( GND ) + ( D1L67 );
+D1L63 = CARRY(D1L63_adder_eqn);
+
+
+--D1L66 is generic_counter:uut_counter|Add0~65 at LABCELL_X48_Y14_N3
+D1L66_adder_eqn = ( D1_count_sig[11] ) + ( GND ) + ( D1L71 );
+D1L66 = SUM(D1L66_adder_eqn);
+
+--D1L67 is generic_counter:uut_counter|Add0~66 at LABCELL_X48_Y14_N3
+D1L67_adder_eqn = ( D1_count_sig[11] ) + ( GND ) + ( D1L71 );
+D1L67 = CARRY(D1L67_adder_eqn);
+
+
+--D1L70 is generic_counter:uut_counter|Add0~69 at LABCELL_X48_Y14_N0
+D1L70_adder_eqn = ( D1_count_sig[10] ) + ( GND ) + ( D1L75 );
+D1L70 = SUM(D1L70_adder_eqn);
+
+--D1L71 is generic_counter:uut_counter|Add0~70 at LABCELL_X48_Y14_N0
+D1L71_adder_eqn = ( D1_count_sig[10] ) + ( GND ) + ( D1L75 );
+D1L71 = CARRY(D1L71_adder_eqn);
+
+
+--D1L74 is generic_counter:uut_counter|Add0~73 at LABCELL_X48_Y15_N57
+D1L74_adder_eqn = ( D1_count_sig[9] ) + ( GND ) + ( D1L79 );
+D1L74 = SUM(D1L74_adder_eqn);
+
+--D1L75 is generic_counter:uut_counter|Add0~74 at LABCELL_X48_Y15_N57
+D1L75_adder_eqn = ( D1_count_sig[9] ) + ( GND ) + ( D1L79 );
+D1L75 = CARRY(D1L75_adder_eqn);
+
+
+--D1L78 is generic_counter:uut_counter|Add0~77 at LABCELL_X48_Y15_N54
+D1L78_adder_eqn = ( D1L117Q ) + ( GND ) + ( D1L83 );
+D1L78 = SUM(D1L78_adder_eqn);
+
+--D1L79 is generic_counter:uut_counter|Add0~78 at LABCELL_X48_Y15_N54
+D1L79_adder_eqn = ( D1L117Q ) + ( GND ) + ( D1L83 );
+D1L79 = CARRY(D1L79_adder_eqn);
+
+
+--D1L82 is generic_counter:uut_counter|Add0~81 at LABCELL_X48_Y15_N51
+D1L82_adder_eqn = ( D1_count_sig[7] ) + ( GND ) + ( D1L87 );
+D1L82 = SUM(D1L82_adder_eqn);
+
+--D1L83 is generic_counter:uut_counter|Add0~82 at LABCELL_X48_Y15_N51
+D1L83_adder_eqn = ( D1_count_sig[7] ) + ( GND ) + ( D1L87 );
+D1L83 = CARRY(D1L83_adder_eqn);
+
+
+--D1L86 is generic_counter:uut_counter|Add0~85 at LABCELL_X48_Y15_N48
+D1L86_adder_eqn = ( D1_count_sig[6] ) + ( GND ) + ( D1L91 );
+D1L86 = SUM(D1L86_adder_eqn);
+
+--D1L87 is generic_counter:uut_counter|Add0~86 at LABCELL_X48_Y15_N48
+D1L87_adder_eqn = ( D1_count_sig[6] ) + ( GND ) + ( D1L91 );
+D1L87 = CARRY(D1L87_adder_eqn);
+
+
+--D1L90 is generic_counter:uut_counter|Add0~89 at LABCELL_X48_Y15_N45
+D1L90_adder_eqn = ( D1_count_sig[5] ) + ( GND ) + ( D1L95 );
+D1L90 = SUM(D1L90_adder_eqn);
+
+--D1L91 is generic_counter:uut_counter|Add0~90 at LABCELL_X48_Y15_N45
+D1L91_adder_eqn = ( D1_count_sig[5] ) + ( GND ) + ( D1L95 );
+D1L91 = CARRY(D1L91_adder_eqn);
+
+
+--D1L94 is generic_counter:uut_counter|Add0~93 at LABCELL_X48_Y15_N42
+D1L94_adder_eqn = ( D1_count_sig[4] ) + ( GND ) + ( D1L99 );
+D1L94 = SUM(D1L94_adder_eqn);
+
+--D1L95 is generic_counter:uut_counter|Add0~94 at LABCELL_X48_Y15_N42
+D1L95_adder_eqn = ( D1_count_sig[4] ) + ( GND ) + ( D1L99 );
+D1L95 = CARRY(D1L95_adder_eqn);
+
+
+--D1L98 is generic_counter:uut_counter|Add0~97 at LABCELL_X48_Y15_N39
+D1L98_adder_eqn = ( D1_count_sig[3] ) + ( GND ) + ( D1L103 );
+D1L98 = SUM(D1L98_adder_eqn);
+
+--D1L99 is generic_counter:uut_counter|Add0~98 at LABCELL_X48_Y15_N39
+D1L99_adder_eqn = ( D1_count_sig[3] ) + ( GND ) + ( D1L103 );
+D1L99 = CARRY(D1L99_adder_eqn);
+
+
+--D1L102 is generic_counter:uut_counter|Add0~101 at LABCELL_X48_Y15_N36
+D1L102_adder_eqn = ( D1_count_sig[2] ) + ( GND ) + ( D1L3 );
+D1L102 = SUM(D1L102_adder_eqn);
+
+--D1L103 is generic_counter:uut_counter|Add0~102 at LABCELL_X48_Y15_N36
+D1L103_adder_eqn = ( D1_count_sig[2] ) + ( GND ) + ( D1L3 );
+D1L103 = CARRY(D1L103_adder_eqn);
+
+
+--sum_sig_signal[0] is sum_sig_signal[0] at FF_X48_Y15_N2
+--register power-up is low
+
+sum_sig_signal[0] = DFFEAS(C1_sum[0], GLOBAL(A1L4), A1L15,  , D1_output,  ,  ,  ,  );
+
+
+--sum_sig_signal[1] is sum_sig_signal[1] at FF_X48_Y15_N5
+--register power-up is low
+
+sum_sig_signal[1] = DFFEAS(C1_sum[1], GLOBAL(A1L4), A1L15,  , D1_output,  ,  ,  ,  );
+
+
+--sum_sig_signal[2] is sum_sig_signal[2] at FF_X48_Y15_N8
+--register power-up is low
+
+sum_sig_signal[2] = DFFEAS(C1_sum[2], GLOBAL(A1L4), A1L15,  , D1_output,  ,  ,  ,  );
+
+
+--sum_sig_signal[3] is sum_sig_signal[3] at FF_X48_Y15_N11
+--register power-up is low
+
+sum_sig_signal[3] = DFFEAS(C1_sum[3], GLOBAL(A1L4), A1L15,  , D1_output,  ,  ,  ,  );
+
+
+--E1L7 is seven_seg:uut_seven_seg|Mux6~0 at LABCELL_X88_Y11_N51
+E1L7 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] & ( (!sum_sig_signal[1] & !sum_sig_signal[2]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (!sum_sig_signal[1] & sum_sig_signal[2]) ) ) );
+
+
+--E1L6 is seven_seg:uut_seven_seg|Mux5~0 at LABCELL_X88_Y11_N45
+E1L6 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] & ( (!sum_sig_signal[1] & sum_sig_signal[2]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1] & sum_sig_signal[2]) ) ) );
+
+
+--E1L5 is seven_seg:uut_seven_seg|Mux4~0 at LABCELL_X88_Y11_N27
+E1L5 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1] & !sum_sig_signal[2]) ) ) );
+
+
+--E1L4 is seven_seg:uut_seven_seg|Mux3~0 at LABCELL_X88_Y11_N6
+E1L4 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (sum_sig_signal[1]) # (sum_sig_signal[2]) ) ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] & ( !sum_sig_signal[2] $ (sum_sig_signal[1]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1]) # (sum_sig_signal[2]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2] & !sum_sig_signal[1]) ) ) );
+
+
+--E1L3 is seven_seg:uut_seven_seg|Mux2~0 at LABCELL_X88_Y11_N36
+E1L3 = ( sum_sig_signal[3] & ( sum_sig_signal[0] ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1]) # (sum_sig_signal[2]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2] & !sum_sig_signal[1]) ) ) );
+
+
+--E1L2 is seven_seg:uut_seven_seg|Mux1~0 at LABCELL_X88_Y11_N57
+E1L2 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] & ( (!sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[2]) # (sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1] & !sum_sig_signal[2]) ) ) );
+
+
+--E1L1 is seven_seg:uut_seven_seg|Mux0~0 at LABCELL_X88_Y11_N0
+E1L1 = ( sum_sig_signal[3] & ( sum_sig_signal[0] & ( (!sum_sig_signal[2] & !sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( sum_sig_signal[0] & ( !sum_sig_signal[2] $ (!sum_sig_signal[1]) ) ) ) # ( sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (!sum_sig_signal[2] & !sum_sig_signal[1]) ) ) ) # ( !sum_sig_signal[3] & ( !sum_sig_signal[0] & ( (sum_sig_signal[1]) # (sum_sig_signal[2]) ) ) );
+
+
+--D1_output is generic_counter:uut_counter|output at FF_X48_Y15_N26
+--register power-up is low
+
+D1_output = DFFEAS(D1L141, GLOBAL(A1L4), A1L15,  ,  ,  ,  ,  ,  );
+
+
+--D1L137 is generic_counter:uut_counter|Equal0~0 at LABCELL_X48_Y14_N48
+D1L137 = ( D1_count_sig[25] & ( D1_count_sig[23] & ( (D1_count_sig[22] & (!D1_count_sig[24] & (D1_count_sig[21] & D1_count_sig[20]))) ) ) );
+
+
+--D1L138 is generic_counter:uut_counter|Equal0~1 at MLABCELL_X47_Y14_N15
+D1L138 = ( D1_count_sig[17] & ( !D1_count_sig[18] & ( (D1_count_sig[15] & (!D1_count_sig[16] & (D1_count_sig[14] & D1_count_sig[19]))) ) ) );
+
+
+--D1L139 is generic_counter:uut_counter|Equal0~2 at LABCELL_X48_Y14_N54
+D1L139 = ( !D1_count_sig[8] & ( !D1_count_sig[9] & ( (!D1_count_sig[10] & (D1_count_sig[13] & (!D1_count_sig[11] & D1_count_sig[12]))) ) ) );
+
+
+--D1L140 is generic_counter:uut_counter|Equal0~3 at LABCELL_X48_Y15_N18
+D1L140 = ( !D1_count_sig[5] & ( !D1_count_sig[3] & ( (!D1_count_sig[6] & (!D1_count_sig[4] & (!D1_count_sig[2] & D1_count_sig[7]))) ) ) );
+
+
+--D1L141 is generic_counter:uut_counter|Equal0~4 at LABCELL_X48_Y15_N24
+D1L141 = ( D1L139 & ( !D1L109Q & ( (D1L140 & (D1L137 & (D1L138 & !D1_count_sig[0]))) ) ) );
+
+
+--A1L18 is ssd_out[0]~output at IOOBUF_X89_Y8_N39
+A1L18 = OUTPUT_BUFFER.O(.I(E1L7), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[0] is ssd_out[0] at PIN_AE26
+ssd_out[0] = OUTPUT();
+
+
+--A1L20 is ssd_out[1]~output at IOOBUF_X89_Y11_N79
+A1L20 = OUTPUT_BUFFER.O(.I(E1L6), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[1] is ssd_out[1] at PIN_AE27
+ssd_out[1] = OUTPUT();
+
+
+--A1L22 is ssd_out[2]~output at IOOBUF_X89_Y11_N96
+A1L22 = OUTPUT_BUFFER.O(.I(E1L5), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[2] is ssd_out[2] at PIN_AE28
+ssd_out[2] = OUTPUT();
+
+
+--A1L24 is ssd_out[3]~output at IOOBUF_X89_Y4_N79
+A1L24 = OUTPUT_BUFFER.O(.I(E1L4), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[3] is ssd_out[3] at PIN_AG27
+ssd_out[3] = OUTPUT();
+
+
+--A1L26 is ssd_out[4]~output at IOOBUF_X89_Y13_N56
+A1L26 = OUTPUT_BUFFER.O(.I(E1L3), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[4] is ssd_out[4] at PIN_AF28
+ssd_out[4] = OUTPUT();
+
+
+--A1L28 is ssd_out[5]~output at IOOBUF_X89_Y13_N39
+A1L28 = OUTPUT_BUFFER.O(.I(E1L2), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[5] is ssd_out[5] at PIN_AG28
+ssd_out[5] = OUTPUT();
+
+
+--A1L30 is ssd_out[6]~output at IOOBUF_X89_Y4_N96
+A1L30 = OUTPUT_BUFFER.O(.I(!E1L1), , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , );
+
+
+--ssd_out[6] is ssd_out[6] at PIN_AH28
+ssd_out[6] = OUTPUT();
+
+
+--A1L3 is clk~input at IOIBUF_X32_Y0_N1
+A1L3 = INPUT_BUFFER(.I(clk), );
+
+
+--clk is clk at PIN_AF14
+clk = INPUT();
+
+
+--A1L15 is reset~input at IOIBUF_X40_Y0_N18
+A1L15 = INPUT_BUFFER(.I(reset), );
+
+
+--reset is reset at PIN_Y16
+reset = INPUT();
+
+
+--A1L7 is input[0]~input at IOIBUF_X12_Y0_N18
+A1L7 = INPUT_BUFFER(.I(input[0]), );
+
+
+--input[0] is input[0] at PIN_AB12
+input[0] = INPUT();
+
+
+--A1L9 is input[1]~input at IOIBUF_X16_Y0_N1
+A1L9 = INPUT_BUFFER(.I(input[1]), );
+
+
+--input[1] is input[1] at PIN_AC12
+input[1] = INPUT();
+
+
+--A1L11 is input[2]~input at IOIBUF_X8_Y0_N35
+A1L11 = INPUT_BUFFER(.I(input[2]), );
+
+
+--input[2] is input[2] at PIN_AF9
+input[2] = INPUT();
+
+
+--A1L13 is input[3]~input at IOIBUF_X4_Y0_N52
+A1L13 = INPUT_BUFFER(.I(input[3]), );
+
+
+--input[3] is input[3] at PIN_AF10
+input[3] = INPUT();
+
+
+
+--A1L4 is clk~inputCLKENA0 at CLKCTRL_G6
+A1L4 = cyclonev_clkena(.INCLK = A1L3) WITH (clock_type = "Global Clock", ena_register_mode = "always enabled");
+
+
+--D1L109Q is generic_counter:uut_counter|count_sig[1]~DUPLICATE at FF_X48_Y15_N34
+--register power-up is low
+
+D1L109Q = DFFEAS(D1L2, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1L107Q is generic_counter:uut_counter|count_sig[0]~DUPLICATE at FF_X48_Y15_N31
+--register power-up is low
+
+D1L107Q = DFFEAS(D1L6, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1L126Q is generic_counter:uut_counter|count_sig[15]~DUPLICATE at FF_X48_Y14_N16
+--register power-up is low
+
+D1L126Q = DFFEAS(D1L50, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1L122Q is generic_counter:uut_counter|count_sig[12]~DUPLICATE at FF_X48_Y14_N7
+--register power-up is low
+
+D1L122Q = DFFEAS(D1L62, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+
+--D1L117Q is generic_counter:uut_counter|count_sig[8]~DUPLICATE at FF_X48_Y15_N55
+--register power-up is low
+
+D1L117Q = DFFEAS(D1L78, GLOBAL(A1L4), A1L15,  ,  ,  ,  , D1L141,  );
+
+

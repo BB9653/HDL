@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/15855/Desktop/blink/blink/sim/script
+Eblink
+Z0 w1716694364
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 dC:/Users/15855/Desktop/bdb4290_HDL/blink/blink/sim/script
+Z4 8../../src/blink.vhd
+Z5 F../../src/blink.vhd
+l0
+L8
+VHlM:1E<9CY5m;ahkVz4Jo1
+!s100 [2cKbDRAM8oV0AhNWCXQ93
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1716694378
+!i10b 1
+Z8 !s108 1716694378.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|../../src/blink.vhd|
+Z10 !s107 ../../src/blink.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Abeh
+R1
+R2
+DEx4 work 5 blink 0 22 HlM:1E<9CY5m;ahkVz4Jo1
+l25
+L20
+Vod<=<JmBZR^QigzA>EnbT3
+!s100 B<X5=<A4W?nEJ^Qg2VEin2
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eblink_tb
+Z13 w1716693185
+R1
+R2
+R3
+Z14 8../src/blink_tb.vhd
+Z15 F../src/blink_tb.vhd
+l0
+L8
+VaHa@?Cg=6RA0<[l9m10=d3
+!s100 4fz^0J8zCXK72OnVz_Qoz0
+R6
+31
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-93|-work|work|../src/blink_tb.vhd|
+Z17 !s107 ../src/blink_tb.vhd|
+!i113 1
+R11
+R12
+Aarch
+R1
+R2
+Z18 DEx4 work 8 blink_tb 0 22 aHa@?Cg=6RA0<[l9m10=d3
+l31
+L11
+Z19 V8T<iQcjoD<:b`JHaX=EYK2
+Z20 !s100 DINCFK<Ykj>jzXVmfa:RG0
+R6
+31
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
