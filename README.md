@@ -2,8 +2,12 @@
 This repository contains an embedded VHDL-based audio processor capable of interpreting and executing an 8-bit instruction set for audio playback. The processor's architecture includes a central processing unit (CPU) with a state machine for managing various audio commands such as Play, Pause, Seek, and Stop.
 
 ## Project Directory Structure
-8bit_Audio_Processor/ ├── doc/ │ ├── datasheet.pdf │ ├── hw/ │ ├── file1.vhdl │ └── file2.vhdl ├── sim/ │ ├── file1.asm │ ├── file2.asm │ └── file3.asm ├── src/└── README.md ├── parser/
-
+- **doc**: contains datasheet of WM8731 Audio Codec
+- **hw**: contains scripts to compile design and program to the DEC-1 SoC Board
+- **parser**: contains audio file example and 8-bit instructions
+- **sim**: contains testbench, and scripts for simulating on ModelSim
+- **src**: contains all source code, including top level design and 8-bit instructions
+   
 ## Instruction Set
 The processor supports the following 8-bit instructions:
 - **Play** (0 0 RPT NA NA NA NA NA)
