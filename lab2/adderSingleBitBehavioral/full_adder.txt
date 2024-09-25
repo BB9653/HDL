@@ -1,6 +1,0 @@
-clk - AF14
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
-reset(high switch) - AE12
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset
-state_change -
-
